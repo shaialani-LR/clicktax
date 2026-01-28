@@ -392,11 +392,10 @@ Deno.serve(async (req) => {
       
       // Decision logic:
       // - Strong signals or self-serve URLs always count as valid signup
-      // - Weak signals only count if NO enterprise-only signals are present
-      // This ensures helixops.ai (has "try our" + "request pricing") is rejected
-      // But linear.app (has "get started" + "/signup" URL) is accepted
-      hasSignupOption = hasStrongSelfServe || hasSelfServeUrl || 
-        (hasWeakSelfServe && !hasEnterpriseOnlySignal);
+      // - Weak signals also count (relaxed validation to allow more products)
+      // This allows products like foldspace.ai that have both weak self-serve
+      // signals and enterprise signals to be analyzed
+      hasSignupOption = hasStrongSelfServe || hasSelfServeUrl || hasWeakSelfServe;
       
       // Log for debugging
       console.log(`Sign-up detection: strong=${hasStrongSelfServe}, urlPatterns=${hasSelfServeUrl}, weak=${hasWeakSelfServe}, enterprise=${hasEnterpriseOnlySignal}, result=${hasSignupOption}`);
