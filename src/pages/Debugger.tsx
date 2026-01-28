@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Search, Bug, Calculator, ArrowRight, ChevronDown, Info, CheckCircle, XCircle, Zap, BookOpen, Users, Clock } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { ComplexityGradeBadge } from "@/components/ComplexityGradeBadge";
 import {
   Command,
