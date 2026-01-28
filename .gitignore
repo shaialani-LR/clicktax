@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs and cache
+*.log
+npm-debug.log*
+.pnpm-debug.log*
+.cache/
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Vite
+*.local
+
+# Supabase
+.supabase/
